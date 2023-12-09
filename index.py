@@ -24,19 +24,19 @@ def generate_emails():
         for email in emails:
             email_listbox.insert(tk.END, email)
 
-# Ablak létrehozása
+# Create window
 window = tk.Tk()
 window.title("Email Extractor")
 
-# Távolság az ablak fejlécétől
+# Distance from the window header
 header_padding = tk.Label(window, text="", height=2)
 header_padding.pack()
 
-# Szöveg a "Browse" gomb fölött
+# Text above the "Browse" button
 browse_label = tk.Label(window, text="Browse to the CSV file:", font=("Helvetica", 12))
 browse_label.pack(anchor='w', padx=10)
 
-# Elérési út mező és Tallózás gomb egy sorban, bal szélre
+# File path entry and Browse button in one row, aligned to the left
 file_path_frame = tk.Frame(window)
 file_path_frame.pack(pady=10, padx=10, anchor='w')
 
@@ -46,16 +46,16 @@ file_path_entry.pack(side=tk.LEFT)
 browse_button = tk.Button(file_path_frame, text="Browse", command=set_file_path)
 browse_button.pack(side=tk.LEFT, padx=5)
 
-# Lista a kigyűjtött emailek megjelenítéséhez
+# Listbox to display collected emails
 email_listbox = tk.Listbox(window, selectmode=tk.SINGLE, width=50, height=10)
 email_listbox.pack(side=tk.LEFT, padx=10, pady=10)
 
-# CSV importálás gomb jobb alsó sarokban
+# Generate button in the bottom right corner
 import_button = tk.Button(window, text="Generate", command=generate_emails)
 import_button.pack(side=tk.RIGHT, padx=10, pady=10)
 
-# Ablak méret beállítása
+# Set window size
 window.geometry("600x300")
 
-# Ablak indítása
+# Start the window
 window.mainloop()
